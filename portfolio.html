@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S. Jagatpathi Choudhury — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cyan: #00d4ff;
+  --purple: #7b2fff;
+  --orange: #ff6b35;
+  --green: #1aff9c;
+  --bg: #020408;
+  --bg2: #060d14;
+  --grid: rgba(0,212,255,0.04);
+  --glass: rgba(0,212,255,0.06);
+  --border: rgba(0,212,255,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: #c9d1d9;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor { position: fixed; width: 12px; height: 12px; background: var(--cyan); border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.1s; mix-blend-mode: screen; }
+.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(0,212,255,0.5); border-radius: 50%; pointer-events: none; z-index: 9998; transition: all 0.15s ease; }
+
+/* CANVAS BACKGROUND */
+#bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+/* GRID OVERLAY */
+.grid-overlay {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* SCANLINES */
+.scanlines {
+  position: fixed; inset: 0; z-index: 2; pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+}
+
+/* MAIN WRAPPER */
+.wrapper { position: relative; z-index: 10; }
+
+/* NAVBAR */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(2,4,8,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Orbitron', monospace;
+  font-size: 14px; font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 3px;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px; color: rgba(201,209,217,0.6);
+  text-decoration: none; letter-spacing: 2px;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--cyan); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  padding: 120px 60px 60px;
+  position: relative; overflow: hidden;
+}
+
+.hero-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px; color: var(--cyan);
+  letter-spacing: 4px; margin-bottom: 20px;
+  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero-tag::before { content: '◈ '; }
+
+.hero-name {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(42px, 7vw, 96px);
+  font-weight: 900; line-height: 1;
+  background: linear-gradient(135deg, #fff 0%, var(--cyan) 50%, var(--purple) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  margin-bottom: 8px;
+}
+
+.hero-sub {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(14px, 2vw, 22px);
+  color: var(--cyan); letter-spacing: 4px;
+  opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  margin-bottom: 32px;
+}
+
+.hero-desc {
+  max-width: 580px; font-size: 18px; line-height: 1.7;
+  color: rgba(201,209,217,0.75);
+  opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+  margin-bottom: 48px;
+}
+
+.hero-btns {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.8s 1s forwards;
+}
+
+.btn {
+  padding: 14px 32px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 13px; letter-spacing: 2px;
+  text-decoration: none; border: none;
+  cursor: none; transition: all 0.3s;
+  position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1));
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn:hover::before { opacity: 1; }
+
+.btn-primary {
+  background: var(--cyan); color: #000;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+.btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,212,255,0.5); }
+
+.btn-outline {
+  background: transparent; color: var(--cyan);
+  border: 1px solid var(--cyan);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+.btn-outline:hover { background: rgba(0,212,255,0.1); transform: translateY(-2px); box-shadow: 0 0 20px rgba(0,212,255,0.3); }
+
+.hero-stats {
+  position: absolute; right: 60px; bottom: 80px;
+  display: flex; flex-direction: column; gap: 24px;
+  opacity: 0; animation: fadeLeft 0.8s 1.2s forwards;
+}
+.stat { text-align: right; }
+.stat-num {
+  font-family: 'Orbitron', monospace;
+  font-size: 36px; font-weight: 900; color: var(--cyan);
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px; color: rgba(201,209,217,0.5);
+  letter-spacing: 2px;
+}
+
+/* CORNER DECORATIONS */
+.corner { position: absolute; width: 40px; height: 40px; }
+.corner-tl { top: 20px; left: 20px; border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.corner-br { bottom: 20px; right: 20px; border-bottom: 2px solid var(--purple); border-right: 2px solid var(--purple); }
+
+/* SECTION STYLES */
+section { padding: 100px 60px; position: relative; }
+
+.section-header {
+  display: flex; align-items: center; gap: 20px;
+  margin-bottom: 60px;
+}
+.section-num {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px; color: var(--cyan);
+  letter-spacing: 3px; opacity: 0.6;
+}
+.section-title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 700; color: #fff;
+  letter-spacing: 2px;
+}
+.section-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--cyan) 10%, var(--purple) 90%, transparent);
+}
+
+.tl-item {
+  position: relative; margin-bottom: 0;
+  opacity: 0; transform: translateX(-20px);
+  transition: all 0.6s ease;
+}
+.tl-item.visible { opacity: 1; transform: translateX(0); }
+
+.tl-year-block {
+  display: flex; align-items: center; gap: 20px;
+  padding: 6px 0;
+}
+.tl-dot {
+  position: absolute; left: -44px; top: 50%;
+  transform: translateY(-50%);
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+}
+.tl-year {
+  font-family: 'Orbitron', monospace;
+  font-size: 28px; font-weight: 900;
+  color: var(--cyan); opacity: 0.3;
+  letter-spacing: 2px; min-width: 80px;
+  line-height: 1;
+}
+
+.tl-entries { padding: 8px 0 32px 0; display: flex; flex-direction: column; gap: 12px; }
+
+.tl-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--cyan);
+  padding: 16px 24px;
+  position: relative; overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  transition: all 0.3s;
+}
+.tl-card:hover {
+  background: rgba(0,212,255,0.08);
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(0,212,255,0.1), inset 0 0 20px rgba(0,212,255,0.03);
+  transform: translateX(4px);
+}
+.tl-card::after {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid; border-width: 0 16px 16px 0;
+  border-color: transparent var(--cyan) transparent transparent;
+  opacity: 0.4;
+}
+
+.tl-role {
+  font-family: 'Orbitron', monospace;
+  font-size: 13px; font-weight: 600;
+  color: #fff; letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.tl-company {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px; color: var(--cyan);
+  margin-bottom: 6px;
+}
+.tl-meta {
+  font-size: 13px; color: rgba(201,209,217,0.5);
+  margin-bottom: 8px;
+  font-family: 'Share Tech Mono', monospace;
+}
+.tl-points {
+  font-size: 13px; color: rgba(201,209,217,0.7);
+  line-height: 1.6;
+}
+.tl-points span { color: var(--orange); }
+
+.tl-badge {
+  display: inline-block; padding: 2px 10px;
+  font-family: 'Share Tech Mono', monospace; font-size: 10px;
+  letter-spacing: 1px;
+  border-radius: 2px; margin-top: 8px; margin-right: 6px;
+}
+.badge-cert { background: rgba(26,255,156,0.1); border: 1px solid rgba(26,255,156,0.3); color: var(--green); }
+.badge-intern { background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.3); color: var(--orange); }
+.badge-job { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); color: var(--cyan); }
+.badge-edu { background: rgba(123,47,255,0.1); border: 1px solid rgba(123,47,255,0.3); color: #c084fc; }
+.badge-project { background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.4); color: var(--orange); }
+
+/* PROJECTS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.proj-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  padding: 32px;
+  position: relative; overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+  transition: all 0.4s;
+  opacity: 0; transform: translateY(30px);
+}
+.proj-card.visible { opacity: 1; transform: translateY(0); }
+.proj-card:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 40px rgba(0,212,255,0.15), inset 0 0 40px rgba(0,212,255,0.03);
+}
+.proj-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.proj-card:hover::before { opacity: 1; }
+
+.proj-accent { width: 40px; height: 3px; margin-bottom: 20px; border-radius: 2px; }
+.proj-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 18px; font-weight: 700; color: #fff;
+  margin-bottom: 12px; letter-spacing: 1px; line-height: 1.3;
+}
+.proj-title a { color: inherit; text-decoration: none; transition: color 0.3s; }
+.proj-title a:hover { color: var(--cyan); }
+
+.proj-desc { font-size: 14px; color: rgba(201,209,217,0.7); line-height: 1.7; margin-bottom: 20px; }
+
+.proj-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 20px; }
+.proj-table th {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--cyan); font-weight: 400;
+  padding: 6px 8px; text-align: left;
+  border-bottom: 1px solid rgba(0,212,255,0.2);
+  letter-spacing: 1px;
+}
+.proj-table td {
+  padding: 8px 8px; vertical-align: top;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: rgba(201,209,217,0.8); line-height: 1.5;
+  font-family: 'Share Tech Mono', monospace;
+}
+.proj-table tr:last-child td { border-bottom: none; }
+.proj-table td:first-child { color: var(--orange); }
+
+.proj-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  padding: 4px 12px;
+  font-family: 'Share Tech Mono', monospace; font-size: 10px;
+  letter-spacing: 1px; border-radius: 2px;
+}
+
+.proj-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Share Tech Mono', monospace; font-size: 11px;
+  color: var(--cyan); text-decoration: none; letter-spacing: 1px;
+  margin-top: 16px; transition: all 0.3s;
+}
+.proj-link:hover { color: #fff; gap: 10px; }
+
+/* SKILLS GRID */
+.skills-section { background: rgba(6,13,20,0.6); }
+
+.skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+.skill-group {
+  background: var(--glass); border: 1px solid var(--border);
+  padding: 28px;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  opacity: 0; transform: translateY(20px);
+  transition: all 0.5s;
+}
+.skill-group.visible { opacity: 1; transform: translateY(0); }
+
+.sg-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px; letter-spacing: 3px;
+  margin-bottom: 20px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag {
+  padding: 5px 12px;
+  font-family: 'Share Tech Mono', monospace; font-size: 11px;
+  letter-spacing: 1px;
+  border-radius: 2px; transition: all 0.2s;
+}
+.skill-tag:hover { transform: translateY(-2px); }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 700px; }
+
+.contact-item {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--glass); border: 1px solid var(--border);
+  padding: 20px 24px;
+  text-decoration: none; color: inherit;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+  transition: all 0.3s;
+  opacity: 0; transform: translateY(20px);
+}
+.contact-item.visible { opacity: 1; transform: translateY(0); }
+.contact-item:hover {
+  background: rgba(0,212,255,0.08);
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,212,255,0.15);
+}
+.contact-icon { font-size: 20px; }
+.contact-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px; color: var(--cyan); letter-spacing: 2px;
+  margin-bottom: 2px;
+}
+.contact-val { font-size: 14px; color: rgba(201,209,217,0.8); }
+
+/* FOOTER */
+footer {
+  padding: 40px 60px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px; color: rgba(201,209,217,0.3);
+  letter-spacing: 2px;
+}
+footer span { color: var(--cyan); }
+
+/* SCROLL INDICATOR */
+.scroll-hint {
+  position: absolute; bottom: 40px; left: 60px;
+  display: flex; align-items: center; gap: 12px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px; color: rgba(201,209,217,0.4);
+  letter-spacing: 3px;
+  opacity: 0; animation: fadeUp 0.8s 1.5s forwards;
+}
+.scroll-line {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, rgba(0,212,255,0.5), transparent);
+  animation: scrollAnim 2s infinite;
+}
+
+/* GLITCH TEXT */
+.glitch {
+  position: relative;
+}
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute; inset: 0;
+  background: inherit; -webkit-background-clip: text; background-clip: text;
+}
+.glitch::before {
+  left: 2px; text-shadow: -1px 0 var(--purple);
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  animation: glitchTop 3s infinite;
+}
+.glitch::after {
+  left: -2px; text-shadow: 1px 0 var(--cyan);
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  animation: glitchBot 3s infinite;
+}
+
+/* STATUS BADGE */
+.status-live {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 4px 14px;
+  background: rgba(26,255,156,0.08); border: 1px solid rgba(26,255,156,0.3);
+  font-family: 'Share Tech Mono', monospace; font-size: 11px;
+  color: var(--green); letter-spacing: 2px;
+  border-radius: 2px;
+}
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 1.5s infinite; }
+.status-wip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 4px 14px;
+  background: rgba(255,160,0,0.08); border: 1px solid rgba(255,160,0,0.3);
+  font-family: 'Share Tech Mono', monospace; font-size: 11px;
+  color: #ffa000; letter-spacing: 2px; border-radius: 2px;
+}
+.status-dot-wip { width: 6px; height: 6px; border-radius: 50%; background: #ffa000; animation: pulse 2s infinite; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes scrollAnim { 0% { width: 0; opacity: 0; } 50% { width: 60px; opacity: 1; } 100% { width: 0; opacity: 0; margin-left: 60px; } }
+@keyframes glitchTop { 0%, 95%, 100% { clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%); } 96% { clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%); left: 2px; } 97% { clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%); left: -2px; } }
+@keyframes glitchBot { 0%, 95%, 100% { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); } 96% { clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%); left: -2px; } 97% { clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%); left: 2px; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* HEXAGON DECORATION */
+.hex-deco {
+  position: absolute; right: 60px; top: 50%;
+  transform: translateY(-50%);
+  width: 300px; height: 300px;
+  opacity: 0; animation: fadeLeft 1s 1s forwards;
+  pointer-events: none;
+}
+.hex-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1px solid rgba(0,212,255,0.15);
+  animation: rotate 20s linear infinite;
+}
+.hex-ring:nth-child(2) {
+  inset: 30px;
+  border-color: rgba(123,47,255,0.15);
+  animation-duration: 15s; animation-direction: reverse;
+}
+.hex-ring:nth-child(3) {
+  inset: 60px;
+  border-color: rgba(0,212,255,0.1);
+  animation-duration: 25s;
+}
+.hex-center {
+  position: absolute; inset: 90px;
+  background: radial-gradient(circle, rgba(0,212,255,0.1), rgba(123,47,255,0.05), transparent);
+  border-radius: 50%;
+  animation: float 4s ease-in-out infinite;
+  display: flex; align-items: center; justify-content: center;
+}
+.hex-initials {
+  font-family: 'Orbitron', monospace;
+  font-size: 32px; font-weight: 900;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* CERT GRID */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.cert-card {
+  background: var(--glass); border: 1px solid var(--border);
+  padding: 20px 24px;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+  display: flex; gap: 16px; align-items: flex-start;
+  opacity: 0; transform: translateY(20px); transition: all 0.5s;
+}
+.cert-card.visible { opacity: 1; transform: translateY(0); }
+.cert-card:hover { border-color: var(--cyan); background: rgba(0,212,255,0.06); }
+.cert-icon { font-size: 24px; }
+.cert-name { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 14px; color: #fff; margin-bottom: 4px; }
+.cert-issuer { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: var(--cyan); margin-bottom: 2px; }
+.cert-year { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: rgba(201,209,217,0.4); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  section, .hero { padding: 80px 24px 60px; }
+  .hero-stats { position: static; flex-direction: row; flex-wrap: wrap; margin-top: 40px; }
+  .hex-deco { display: none; }
+  .contact-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+  .scroll-hint { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="grid-overlay"></div>
+<div class="scanlines"></div>
+
+<div class="wrapper">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SJC.DEV</div>
+  <ul class="nav-links">
+    <li><a href="#timeline">TIMELINE</a></li>
+    <li><a href="#projects">PROJECTS</a></li>
+    <li><a href="#skills">SKILLS</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+    <li><a href="https://github.com/sjchoudhury/portfolio/raw/main/Jagatpathi_Choudhury_Resume_final.pdf" target="_blank">RESUME ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-br"></div>
+
+  <div class="hero-tag">FINANCE ENGINEER / SAP FICO / ERP AUTOMATION</div>
+  <div class="hero-name glitch" data-text="JAGATPATHI">JAGATPATHI</div>
+  <div class="hero-name glitch" data-text="CHOUDHURY" style="animation-delay:0.5s">CHOUDHURY</div>
+  <div class="hero-sub">S. JAGATPATHI CHOUDHURY</div>
+  <p class="hero-desc">
+    Finance & Accounts professional building production-grade ERP automation and reconciliation systems. Expert in SAP FICO, Python-based finance tools, and zero-error compliance workflows.
+  </p>
+  <div class="hero-btns">
+    <a href="https://github.com/sjchoudhury/portfolio/raw/main/Jagatpathi_Choudhury_Resume_final.pdf" class="btn btn-primary" target="_blank">⬇ DOWNLOAD RESUME PDF</a>
+    <a href="https://github.com/sjchoudhury/portfolio/raw/main/Jagatpathi_Choudhury_Resume_final.docx" class="btn btn-outline" target="_blank">⬇ DOWNLOAD RESUME DOCX</a>
+    <a href="https://www.linkedin.com/in/s-j-choudhury-407498205/" class="btn btn-outline" target="_blank">◈ LINKEDIN</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" id="counter1">0</div>
+      <div class="stat-label">TRANSACTIONS / MONTH</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="counter2">0</div>
+      <div class="stat-label">YEARS EXPERIENCE</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="counter3">0</div>
+      <div class="stat-label">ERP SYSTEMS MASTERED</div>
+    </div>
+  </div>
+
+  <div class="hex-deco">
+    <div class="hex-ring"></div>
+    <div class="hex-ring"></div>
+    <div class="hex-ring"></div>
+    <div class="hex-center"><div class="hex-initials">SJC</div></div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    SCROLL TO EXPLORE
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <div class="section-title">CAREER TIMELINE</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- 2019 -->
+    <div class="tl-item">
+      <div class="tl-year-block">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2019</div>
+      </div>
+      <div class="tl-entries">
+        <div class="tl-card">
+          <div class="tl-role">CASHIER & ACCOUNTS ASSISTANT</div>
+          <div class="tl-company">◈ Purnamaba Fertilizers · Malkangiri, Odisha</div>
+          <div class="tl-meta">JAN 2019 — DEC 2021 &nbsp;|&nbsp; 3 YEARS</div>
+          <div class="tl-points">Cash books · Outstanding reports · Customer transaction management</div>
+          <span class="tl-badge badge-job">JOB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2022 -->
+    <div class="tl-item">
+      <div class="tl-year-block">
+        <div class="tl-dot" style="background:var(--orange);box-shadow:0 0 12px var(--orange)"></div>
+        <div class="tl-year" style="color:var(--orange)">2022</div>
+      </div>
+      <div class="tl-entries">
+        <div class="tl-card" style="border-left-color:var(--orange)">
+          <div class="tl-role">FINANCE INTERN</div>
+          <div class="tl-company" style="color:var(--orange)">◈ HAL, Sunabeda · Odisha</div>
+          <div class="tl-meta">JUN 2022 — JUL 2022 &nbsp;|&nbsp; 2 MONTHS</div>
+          <div class="tl-points">Bookkeeping · Import/export documentation · Payroll processing<br/>
+          <span>Capstone:</span> Working Capital Management of HAL</div>
+          <span class="tl-badge badge-intern">INTERNSHIP</span>
+        </div>
+        <div class="tl-card" style="border-left-color:var(--orange)">
+          <div class="tl-role">DEMAND GENERATION ASSOCIATE</div>
+          <div class="tl-company" style="color:var(--orange)">◈ Kansai Nerolac Paints · Jeypore</div>
+          <div class="tl-meta">DEC 2022 — MAR 2023 &nbsp;|&nbsp; 4 MONTHS</div>
+          <div class="tl-points">Lead generation · Client meetings · Dealer & contractor network management</div>
+          <span class="tl-badge badge-intern">INTERNSHIP</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="tl-item">
+      <div class="tl-year-block">
+        <div class="tl-dot" style="background:#c084fc;box-shadow:0 0 12px #c084fc"></div>
+        <div class="tl-year" style="color:#c084fc">2023</div>
+      </div>
+      <div class="tl-entries">
+        <div class="tl-card" style="border-left-color:#c084fc">
+          <div class="tl-role">🎓 BBA GRADUATE</div>
+          <div class="tl-company" style="color:#c084fc">◈ Vikram Deb (Autonomous) College · Jeypore, Odisha</div>
+          <div class="tl-meta">MAY 2023</div>
+          <div class="tl-points">Financial Accounting · Cost & Management Accounting · Organizational Behavior</div>
+          <span class="tl-badge badge-edu">EDUCATION</span>
+        </div>
+        <div class="tl-card" style="border-left-color:#c084fc">
+          <div class="tl-role">JUNIOR ACCOUNTANT</div>
+          <div class="tl-company" style="color:#c084fc">◈ Legend Car's PVT LTD · Jeypore (Part-Time)</div>
+          <div class="tl-meta">MAR 2023 — OCT 2023 &nbsp;|&nbsp; 8 MONTHS</div>
+          <div class="tl-points">Sales & receivables across <span>4 dealerships</span> · <span>20% discrepancy reduction</span></div>
+          <span class="tl-badge badge-job">JOB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="tl-item">
+      <div class="tl-year-block">
+        <div class="tl-dot" style="background:var(--green);box-shadow:0 0 12px var(--green)"></div>
+        <div class="tl-year" style="color:var(--green)">2024</div>
+      </div>
+      <div class="tl-entries">
+        <div class="tl-card" style="border-left-color:var(--green)">
+          <div class="tl-role">ACCOUNTANT</div>
+          <div class="tl-company" style="color:var(--green)">◈ PR Homes · Jeypore (Part-Time)</div>
+          <div class="tl-meta">JAN 2024 — JUN 2024 &nbsp;|&nbsp; 6 MONTHS</div>
+          <div class="tl-points">GST filings · Payments · Expense tracking · <span>15% reporting improvement</span></div>
+          <span class="tl-badge badge-job">JOB</span>
+        </div>
+        <div class="tl-card" style="border-left-color:var(--green)">
+          <div class="tl-role">EXECUTIVE — FINANCE & ACCOUNTS / SAP FI & ARIBA</div>
+          <div class="tl-company" style="color:var(--green)">◈ Jeevan Scientific Technology Ltd · Hyderabad</div>
+          <div class="tl-meta">JUN 2024 — APR 2025 &nbsp;|&nbsp; 11 MONTHS</div>
+          <div class="tl-points">SAP Ariba · Full P2P cycle · TDS (Form 26Q) · GSTR-1/3B/2B<br/>
+          Foreign remittances · Exchange rate variance · B/S & P&L support<br/>
+          <span>Tools:</span> Tally Prime · Excel · SAP Ariba</div>
+          <span class="tl-badge badge-job">JOB</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="tl-item">
+      <div class="tl-year-block">
+        <div class="tl-dot" style="background:var(--cyan);box-shadow:0 0 18px var(--cyan), 0 0 40px rgba(0,212,255,0.4)"></div>
+        <div class="tl-year" style="color:var(--cyan);opacity:1">2025</div>
+      </div>
+      <div class="tl-entries">
+        <div class="tl-card">
+          <div class="tl-role">SAP S/4HANA CERTIFICATIONS + EY AUDIT SIMULATION</div>
+          <div class="tl-company">◈ SAP · Forage · Office Master</div>
+          <div class="tl-meta">FEB–MAR 2025</div>
+          <div class="tl-points">Financial Accounting Overview in SAP S/4HANA · Basic ERP Processes · EY Audit Job Simulation · Power BI Workshop</div>
+          <span class="tl-badge badge-cert">CERTIFICATION</span>
+        </div>
+        <div class="tl-card">
+          <div class="tl-role">FINANCE EXECUTIVE / ERP CONSULTANT</div>
+          <div class="tl-company">◈ Simplify Infotech Pvt. Ltd. (KoinX) · Bhubaneswar</div>
+          <div class="tl-meta">APR 2025 — PRESENT &nbsp; <span class="status-live"><span class="status-dot"></span>ACTIVE</span></div>
+          <div class="tl-points">FI-AR & FI-GL reconciliations for <span>40K+ monthly invoices</span><br/>
+          GSTR-1/3B · GSTR-2B recon · TDS · Clause-34 statutory reporting<br/>
+          International remittances · Form A2 · Automated Razorpay workflows<br/>
+          <span>Tools:</span> Zoho Books · Excel · Razorpay Dashboard</div>
+          <span class="tl-badge badge-job">JOB</span>
+        </div>
+        <div class="tl-card" style="border-left-color:var(--orange)">
+          <div class="tl-role">RECON v2.0 — BUILT FROM SCRATCH</div>
+          <div class="tl-company" style="color:var(--orange)">◈ Personal Project · Python + FastAPI</div>
+          <div class="tl-meta">FEB 2026 &nbsp; <span class="status-live"><span class="status-dot"></span>LIVE</span></div>
+          <div class="tl-points">3-module reconciliation platform — GST IMS · Bank · Payment Gateway<br/>
+          Gap: <span>₹41.7L → near ₹0</span> · Zero data leaves your machine</div>
+          <span class="tl-badge badge-project">PROJECT</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:rgba(6,13,20,0.5)">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div class="section-title">ACTIVE BUILDS</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- RECON -->
+    <div class="proj-card" style="grid-column: span 2">
+      <div class="proj-accent" style="background:linear-gradient(90deg,var(--cyan),var(--purple))"></div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+        <div class="proj-title">
+          <a href="https://github.com/sjchoudhury/GST-Reconciliation-Tool" target="_blank">RECON — Financial Reconciliation System v2.0 ↗</a>
+        </div>
+        <span class="status-live"><span class="status-dot"></span>LIVE</span>
+      </div>
+      <div class="proj-tags" style="margin-bottom:16px">
+        <span class="tag" style="background:rgba(255,212,59,0.1);border:1px solid rgba(255,212,59,0.3);color:#ffd43b">Python 3.13</span>
+        <span class="tag" style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);color:var(--cyan)">FastAPI 0.110</span>
+        <span class="tag" style="background:rgba(123,47,255,0.1);border:1px solid rgba(123,47,255,0.3);color:#c084fc">Pandas 2.2</span>
+        <span class="tag" style="background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.3);color:var(--orange)">openpyxl 3.1</span>
+        <span class="tag" style="background:rgba(26,255,156,0.1);border:1px solid rgba(26,255,156,0.3);color:var(--green)">pdfplumber</span>
+        <span class="tag" style="background:rgba(26,255,156,0.1);border:1px solid rgba(26,255,156,0.3);color:var(--green)">fuzzywuzzy</span>
+      </div>
+      <p class="proj-desc" style="font-style:italic;color:rgba(201,209,217,0.5);margin-bottom:20px">"Upload. Process. Download. Done. Local-first — zero data leaves your machine."</p>
+      <table class="proj-table">
+        <tr>
+          <th>MODULE</th><th>TECHNOLOGY</th><th>KEY ACHIEVEMENT</th>
+        </tr>
+        <tr>
+          <td>📋 GST IMS Reconciliation</td>
+          <td>Python · Pandas · openpyxl</td>
+          <td>Rule-based matching · QRMP detection · CGST/SGST/IGST validation · GSTIN verification · Vendor risk scoring 🔴🟡🟢 · ITC-at-risk · 6-sheet CA-ready Excel report</td>
+        </tr>
+        <tr>
+          <td>🏦 Bank Reconciliation</td>
+          <td>pdfplumber · fuzzywuzzy</td>
+          <td>6-pass engine (UTR exact · fuzzy narration · amount+date window) · ActivMoney FD intelligence · Auto-reconciled ₹36L · Gap ₹41.7L → near ₹0</td>
+        </tr>
+        <tr>
+          <td>💳 Payment Gateway Recon</td>
+          <td>FastAPI · Pandas</td>
+          <td>Stripe (USD) · PhonePe · Cashfree · Zoho Payments vs Zoho Books · FX gap detection · 3% tolerance probable match engine</td>
+        </tr>
+      </table>
+      <a href="https://github.com/sjchoudhury/GST-Reconciliation-Tool" class="proj-link" target="_blank">VIEW ON GITHUB →</a>
+    </div>
+
+    <!-- SAP -->
+    <div class="proj-card">
+      <div class="proj-accent" style="background:linear-gradient(90deg,var(--purple),#c084fc)"></div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:12px">
+        <div class="proj-title">SAP FICO Implementation Project</div>
+        <span class="status-wip"><span class="status-dot-wip"></span>IN PROGRESS</span>
+      </div>
+      <div class="proj-tags" style="margin-bottom:16px">
+        <span class="tag" style="background:rgba(15,170,255,0.1);border:1px solid rgba(15,170,255,0.3);color:#0faaff">SAP S/4HANA</span>
+        <span class="tag" style="background:rgba(15,170,255,0.1);border:1px solid rgba(15,170,255,0.3);color:#0faaff">FI-CO Config</span>
+      </div>
+      <p class="proj-desc">Full enterprise configuration in internal practice environment. Enterprise Structure · GL Accounting (FI-GL) · FI–CO integration (OKEON) · GL postings via FB50/FB01 · Business Areas · Cost & Profit Centers</p>
+      <a href="https://drive.google.com/drive/folders/1HeLMxsBECV9ccZZFyMmWjFQfhtm6n2lb?usp=sharing" class="proj-link" target="_blank">VIEW ON DRIVE →</a>
+    </div>
+
+    <!-- HAL -->
+    <div class="proj-card">
+      <div class="proj-accent" style="background:linear-gradient(90deg,var(--green),var(--cyan))"></div>
+      <div class="proj-title">Working Capital Management — HAL Case Study</div>
+      <div class="proj-tags" style="margin-bottom:16px">
+        <span class="tag" style="background:rgba(26,255,156,0.1);border:1px solid rgba(26,255,156,0.3);color:var(--green)">Finance Research</span>
+        <span class="tag" style="background:rgba(26,255,156,0.1);border:1px solid rgba(26,255,156,0.3);color:var(--green)">Case Study</span>
+      </div>
+      <p class="proj-desc">Strategic analysis of current assets & liabilities optimization at Hindustan Aeronautics Ltd. Capstone project from Finance Internship at HAL, Sunabeda.</p>
+      <a href="https://drive.google.com/drive/folders/1qKQkrVxBgIvhZp8SZfTQTh2-pKmT1Avs?usp=sharing" class="proj-link" target="_blank">VIEW ON DRIVE →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <div class="section-title">SKILL MATRIX</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="skill-groups">
+    <div class="skill-group">
+      <div class="sg-title" style="color:var(--cyan)">◈ FINANCE & COMPLIANCE</div>
+      <div class="skill-tags">
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">AP & AR</span>
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">GL Accounting</span>
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">GST GSTR-1/2B/3B</span>
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">TDS Form 26Q</span>
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">Bank Reconciliation</span>
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">MIS Reporting</span>
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">Statutory Compliance</span>
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">Foreign Remittances</span>
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">Month-End Closing</span>
+        <span class="skill-tag" style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);color:var(--cyan)">Ledger Scrutiny</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title" style="color:var(--purple)">◈ SAP & ERP SYSTEMS</div>
+      <div class="skill-tags">
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">SAP S/4HANA</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">SAP ECC</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">SAP FICO</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">SAP Ariba</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">FI-GL · FI-AP · FI-AR</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">APP F110</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">FI-CO Integration</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">Tally Prime</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">Zoho Books</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">MS Dynamics 365</span>
+        <span class="skill-tag" style="background:rgba(123,47,255,0.08);border:1px solid rgba(123,47,255,0.25);color:#c084fc">Xero</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title" style="color:var(--orange)">◈ DATA & AUTOMATION</div>
+      <div class="skill-tags">
+        <span class="skill-tag" style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.25);color:var(--orange)">Python</span>
+        <span class="skill-tag" style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.25);color:var(--orange)">FastAPI</span>
+        <span class="skill-tag" style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.25);color:var(--orange)">Pandas</span>
+        <span class="skill-tag" style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.25);color:var(--orange)">Advanced Excel</span>
+        <span class="skill-tag" style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.25);color:var(--orange)">Power BI</span>
+        <span class="skill-tag" style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.25);color:var(--orange)">SQL (Basic)</span>
+        <span class="skill-tag" style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.25);color:var(--orange)">HTML</span>
+        <span class="skill-tag" style="background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.25);color:var(--orange)">MS Office</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title" style="color:var(--green)">◈ PROCESS FRAMEWORKS</div>
+      <div class="skill-tags">
+        <span class="skill-tag" style="background:rgba(26,255,156,0.08);border:1px solid rgba(26,255,156,0.25);color:var(--green)">Procure-to-Pay (P2P)</span>
+        <span class="skill-tag" style="background:rgba(26,255,156,0.08);border:1px solid rgba(26,255,156,0.25);color:var(--green)">Order-to-Cash (O2C)</span>
+        <span class="skill-tag" style="background:rgba(26,255,156,0.08);border:1px solid rgba(26,255,156,0.25);color:var(--green)">Record-to-Report (R2R)</span>
+        <span class="skill-tag" style="background:rgba(26,255,156,0.08);border:1px solid rgba(26,255,156,0.25);color:var(--green)">Audit Support</span>
+        <span class="skill-tag" style="background:rgba(26,255,156,0.08);border:1px solid rgba(26,255,156,0.25);color:var(--green)">Month-End Closing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <div class="section-title">CERTIFICATIONS</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">⚡</div>
+      <div>
+        <div class="cert-name">Financial Accounting Overview in SAP S/4HANA</div>
+        <div class="cert-issuer">SAP</div>
+        <div class="cert-year">MAR 2025</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">⚡</div>
+      <div>
+        <div class="cert-name">Executing Basic ERP Processes with SAP S/4HANA</div>
+        <div class="cert-issuer">SAP</div>
+        <div class="cert-year">FEB 2025</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">◈</div>
+      <div>
+        <div class="cert-name">EY – Audit Job Simulation</div>
+        <div class="cert-issuer">Forage</div>
+        <div class="cert-year">FEB 2025</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">◈</div>
+      <div>
+        <div class="cert-name">Power BI Workshop</div>
+        <div class="cert-issuer">Office Master</div>
+        <div class="cert-year">MAR 2025</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">▶</div>
+      <div>
+        <div class="cert-name">Python Certification</div>
+        <div class="cert-issuer">Perfect eLearning</div>
+        <div class="cert-year">NOV 2021</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">▶</div>
+      <div>
+        <div class="cert-name">SQL (Basic)</div>
+        <div class="cert-issuer">HackerRank</div>
+        <div class="cert-year">MAY 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:rgba(6,13,20,0.7)">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <div class="section-title">CONTACT</div>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <a href="mailto:jaga97581@gmail.com" class="contact-item">
+      <div class="contact-icon">✉</div>
+      <div>
+        <div class="contact-label">EMAIL</div>
+        <div class="contact-val">jaga97581@gmail.com</div>
+      </div>
+    </a>
+    <a href="tel:+917848994646" class="contact-item">
+      <div class="contact-icon">◉</div>
+      <div>
+        <div class="contact-label">PHONE</div>
+        <div class="contact-val">+91 78489 94646</div>
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/in/s-j-choudhury-407498205/" class="contact-item" target="_blank">
+      <div class="contact-icon">◈</div>
+      <div>
+        <div class="contact-label">LINKEDIN</div>
+        <div class="contact-val">s-j-choudhury-407498205</div>
+      </div>
+    </a>
+    <a href="https://github.com/sjchoudhury" class="contact-item" target="_blank">
+      <div class="contact-icon">◎</div>
+      <div>
+        <div class="contact-label">GITHUB</div>
+        <div class="contact-val">github.com/sjchoudhury</div>
+      </div>
+    </a>
+    <a href="https://github.com/sjchoudhury/portfolio/raw/main/Jagatpathi_Choudhury_Resume_final.pdf" class="contact-item" target="_blank" style="border-left:2px solid var(--orange)">
+      <div class="contact-icon">⬇</div>
+      <div>
+        <div class="contact-label" style="color:var(--orange)">RESUME PDF</div>
+        <div class="contact-val">Download Now</div>
+      </div>
+    </a>
+    <div class="contact-item" style="cursor:default">
+      <div class="contact-icon">📍</div>
+      <div>
+        <div class="contact-label">LOCATION</div>
+        <div class="contact-val">Bhubaneswar, Odisha · Open to Relocate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2026 <span>S. Jagatpathi Choudhury</span> · All rights reserved</div>
+  <div><span>"Reconcile everything. Automate the rest."</span></div>
+  <div>Bhubaneswar · <span>Ready to Relocate</span></div>
+</footer>
+
+</div>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx - 6 + 'px';
+  cursor.style.top = my - 6 + 'px';
+});
+function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx - 18 + 'px';
+  ring.style.top = ry - 18 + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+document.querySelectorAll('a, button, .btn').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'scale(2)';
+    ring.style.transform = 'scale(1.5)';
+    ring.style.borderColor = 'rgba(0,212,255,0.8)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'scale(1)';
+    ring.style.transform = 'scale(1)';
+    ring.style.borderColor = 'rgba(0,212,255,0.5)';
+  });
+});
+
+// ANIMATED BG PARTICLES
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.r = Math.random() * 1.5 + 0.3;
+    this.a = Math.random() * 0.5 + 0.1;
+    this.c = Math.random() > 0.7 ? '#7b2fff' : '#00d4ff';
+  }
+  update() {
+    this.x += this.vx; this.y += this.vy;
+    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.a;
+    ctx.fillStyle = this.c;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+function drawLines() {
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 100) {
+        ctx.save();
+        ctx.globalAlpha = (1 - d/100) * 0.08;
+        ctx.strokeStyle = '#00d4ff';
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, W, H);
+  particles.forEach(p => { p.update(); p.draw(); });
+  drawLines();
+  requestAnimationFrame(animate);
+}
+animate();
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.tl-item, .proj-card, .skill-group, .contact-item, .cert-card').forEach(el => observer.observe(el));
+
+// STAGGER PROJECT CARDS
+document.querySelectorAll('.proj-card').forEach((card, i) => {
+  card.style.transitionDelay = i * 0.1 + 's';
+});
+document.querySelectorAll('.skill-group').forEach((g, i) => {
+  g.style.transitionDelay = i * 0.1 + 's';
+});
+document.querySelectorAll('.tl-item').forEach((item, i) => {
+  item.style.transitionDelay = i * 0.1 + 's';
+});
+document.querySelectorAll('.cert-card').forEach((c, i) => {
+  c.style.transitionDelay = i * 0.08 + 's';
+});
+document.querySelectorAll('.contact-item').forEach((c, i) => {
+  c.style.transitionDelay = i * 0.08 + 's';
+});
+
+// COUNTERS
+function animCounter(el, target, suffix = '') {
+  let start = 0;
+  const step = target / 60;
+  const timer = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.floor(start).toLocaleString() + suffix;
+    if (start >= target) clearInterval(timer);
+  }, 25);
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    animCounter(document.getElementById('counter1'), 40000, 'K+');
+    animCounter(document.getElementById('counter2'), 7, '+');
+    animCounter(document.getElementById('counter3'), 8, '+');
+    statsObserver.disconnect();
+  }
+}, { threshold: 0.5 });
+
+statsObserver.observe(document.querySelector('.hero-stats'));
+</script>
+</body>
+</html>
