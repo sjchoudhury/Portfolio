@@ -50,6 +50,71 @@ Independently built **RECON** — a production-grade 3-module financial reconcil
 
 ---
 
+
+---
+
+<div align="center">
+
+## `[ CAREER TIMELINE ]`
+
+</div>
+
+```
+                         CAREER TIMELINE
+──────────────────────────────────────────────────────────────────────────
+
+ 2019 ──┬── Purnamaba Fertilizers, Malkangiri
+        │   Cashier & Accounts Assistant
+        │   Cash books · Outstanding reports · Customer transactions
+        │
+ 2020 ──┤   (continuing at Purnamaba Fertilizers)
+        │
+ 2021 ──┤   (continuing at Purnamaba Fertilizers)
+        │
+        ├── Dec 2021: Left Purnamaba Fertilizers
+        │
+ 2022 ──┬── Jun–Jul 2022 ▸ HAL, Sunabeda — Finance Intern
+        │   Bookkeeping · Import/Export docs · Payroll
+        │   Capstone: Working Capital Management of HAL
+        │
+        ├── Dec 2022 ▸ Kansai Nerolac Paints — Demand Gen Intern
+        │   Lead generation · Client meetings · Dealer network mgmt
+        │
+ 2023 ──┬── Mar 2023: Left Kansai Nerolac Paints
+        │
+        ├── Mar 2023 ▸ Legend Car's PVT LTD, Jeypore — Junior Accountant
+        │   Sales & Receivables · 4 Dealerships · 20% less discrepancies
+        │
+        ├── May 2023 🎓 BBA — Vikram Deb (Autonomous) College, Jeypore
+        │
+        ├── Oct 2023: Left Legend Car's PVT LTD
+        │
+ 2024 ──┬── Jan 2024 ▸ PR Homes, Jeypore — Accountant (Part-Time)
+        │   GST filings · Profit margin analysis · 15% reporting improvement
+        │
+        ├── Jun 2024: Left PR Homes
+        │
+        ├── Jun 2024 ▸ Jeevan Scientific Technology Ltd, Hyderabad
+        │   Executive – Finance & Accounts / SAP FI & Ariba Support
+        │   SAP Ariba · P2P cycle · TDS · GSTR · Foreign remittances
+        │
+ 2025 ──┬── Feb 2025 ▸ SAP S/4HANA Certifications (x2) + EY Forage
+        │
+        ├── Feb 2026 ▸ Built RECON v2.0 — 3-Module Reconciliation Platform
+        │   GST IMS · Bank Recon · Payment Gateway · Python + FastAPI
+        │
+        ├── Apr 2025: Left Jeevan Scientific Technology Ltd
+        │
+        ├── Apr 2025 ▸ Simplify Infotech Pvt. Ltd. (KoinX), Bhubaneswar
+        │   Finance Executive / ERP Consultant – Finance Operations
+        │   40K+ reconciliations · GST · Razorpay automation · FI-AR/GL
+        │
+ 2026 ──┴── PRESENT ████████████████████ ACTIVE @ KoinX
+
+──────────────────────────────────────────────────────────────────────────
+```
+
+
 ## 💼 Work Experience
 
 ```
