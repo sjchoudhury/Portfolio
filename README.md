@@ -1,264 +1,182 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=venom&color=0:000000,30:0d1117,60:00d4ff,100:7b2fff&height=220&section=header&text=S.%20Jagatpathi%20Choudhury&fontSize=46&fontColor=00d4ff&fontAlignY=40&desc=Finance%20Engineer%20%7C%20SAP%20FICO%20%7C%20ERP%20Automation%20Architect&descAlignY=62&descSize=16&animation=twinkling&stroke=00d4ff&strokeWidth=1" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=venom&color=0:000000,30:0d1117,60:00d4ff,100:7b2fff&height=200&section=header&text=Portfolio%20—%20S.%20Jagatpathi%20Choudhury&fontSize=38&fontColor=00d4ff&fontAlignY=40&desc=Finance%20Engineer%20%7C%20SAP%20FICO%20%7C%20ERP%20Automation%20Architect&descAlignY=62&descSize=16&animation=twinkling&stroke=00d4ff&strokeWidth=1" />
 
 </div>
 
 <div align="center">
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=20&duration=2800&pause=900&color=00D4FF&center=true&vCenter=true&width=750&lines=%E2%96%B6+Reconciling+40%2C000%2B+transactions+%2F+month;%E2%96%B6+Building+SAP+FICO+from+scratch+%7C+GL+%C2%B7+AP+%C2%B7+AR+%C2%B7+CO;%E2%96%B6+Automating+GST+compliance+with+Python+%26+FastAPI;%E2%96%B6+Turning+finance+rules+into+scalable+logic;%E2%96%B6+Open+to+SAP+%7C+ERP+%7C+Finance+Opportunities" alt="Typing SVG" /></a>
+[![LinkedIn](https://img.shields.io/badge/◈_LinkedIn-0d1117?style=for-the-badge&logo=linkedin&logoColor=00d4ff&labelColor=0d1117)](https://www.linkedin.com/in/s-j-choudhury-407498205/)&nbsp;
+[![Email](https://img.shields.io/badge/◈_Email-0d1117?style=for-the-badge&logo=gmail&logoColor=00d4ff&labelColor=0d1117)](mailto:jaga97581@gmail.com)&nbsp;
+[![GitHub](https://img.shields.io/badge/◈_GitHub-0d1117?style=for-the-badge&logo=github&logoColor=00d4ff&labelColor=0d1117)](https://github.com/sjchoudhury)&nbsp;
+[![PDF Resume](https://img.shields.io/badge/◈_Download_Resume_PDF-0d1117?style=for-the-badge&logo=adobeacrobatreader&logoColor=ff6b35&labelColor=0d1117)](https://github.com/sjchoudhury/portfolio/raw/main/Jagatpathi_Choudhury_Resume_final.pdf)&nbsp;
+[![DOCX Resume](https://img.shields.io/badge/◈_Download_Resume_DOCX-0d1117?style=for-the-badge&logo=microsoftword&logoColor=7b2fff&labelColor=0d1117)](https://github.com/sjchoudhury/portfolio/raw/main/Jagatpathi_Choudhury_Resume_final.docx)
 
 </div>
-
-<br/>
-
-<div align="center">
-
-[![Gmail](https://img.shields.io/badge/◈_jaga97581@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=00d4ff&labelColor=0d1117)](mailto:jaga97581@gmail.com)&nbsp;
-[![Phone](https://img.shields.io/badge/◈_+91_78489_94646-0d1117?style=for-the-badge&logo=whatsapp&logoColor=00d4ff&labelColor=0d1117)](tel:+917848994646)&nbsp;
-[![Location](https://img.shields.io/badge/◈_Bhubaneswar,_Odisha-0d1117?style=for-the-badge&logo=googlemaps&logoColor=7b2fff&labelColor=0d1117)](#)&nbsp;
-[![GitHub](https://img.shields.io/badge/◈_sjchoudhury-0d1117?style=for-the-badge&logo=github&logoColor=00d4ff&labelColor=0d1117)](https://github.com/sjchoudhury)
-
-</div>
-
-<br/>
 
 ---
 
 ```
 ╔══════════════════════════════════════════════════════════════════════════╗
-║                         SYSTEM PROFILE v2026                           ║
+║                         PORTFOLIO INDEX                                ║
 ╠══════════════════════════════════════════════════════════════════════════╣
-║  OPERATOR   : S. Jagatpathi Choudhury                                  ║
-║  CLASS      : Finance Engineer + ERP Consultant (SAP FICO)             ║
-║  BASE       : Bhubaneswar, Odisha  ◈  DEPLOY_MODE: Ready to Relocate  ║
-║  STACK      : SAP S/4HANA · Python · FastAPI · Excel · Tally · Zoho   ║
-║  MISSION    : Automate compliance · Optimize ERP · Eliminate errors    ║
-║  STATUS     : ██████████ ACTIVE @ KoinX (Apr 2025 – Present)          ║
+║  NAME       : S. Jagatpathi Choudhury                                  ║
+║  ROLE       : Finance Engineer + ERP Consultant (SAP FICO)             ║
+║  LOCATION   : Bhubaneswar, Odisha  ◈  Ready to Relocate               ║
+║  CONTACT    : jaga97581@gmail.com  ◈  +91 78489 94646                 ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║  📄 RESUME  : Jagatpathi_Choudhury_Resume_final.pdf  /  .docx         ║
+║  🔗 RECON   : github.com/sjchoudhury/GST-Reconciliation-Tool           ║
+║  🔗 SAP     : drive.google.com (see Projects section below)            ║
 ╚══════════════════════════════════════════════════════════════════════════╝
 ```
 
 ---
 
-<div align="center">
+## 📄 Resume
 
-## `[ SKILL MATRIX ]`
-
-</div>
-
-<div align="center">
-
-**— Finance & Compliance Core —**
-
-![](https://img.shields.io/badge/GST_GSTR--1%2F2B%2F3B-00d4ff?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/TDS_Form_26Q-00d4ff?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/AP_%26_AR-00d4ff?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/GL_Accounting-00d4ff?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/Bank_Reconciliation-00d4ff?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/MIS_Reporting-00d4ff?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/Statutory_Compliance-00d4ff?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/Foreign_Remittances-00d4ff?style=flat-square&logoColor=black)
-
-**— SAP & ERP Systems —**
-
-![](https://img.shields.io/badge/SAP_S%2F4HANA_FICO-7b2fff?style=flat-square&logoColor=white)
-![](https://img.shields.io/badge/SAP_ECC-7b2fff?style=flat-square&logoColor=white)
-![](https://img.shields.io/badge/SAP_Ariba-7b2fff?style=flat-square&logoColor=white)
-![](https://img.shields.io/badge/FI--GL_%7C_FI--AP_%7C_FI--AR-7b2fff?style=flat-square&logoColor=white)
-![](https://img.shields.io/badge/APP_F110-7b2fff?style=flat-square&logoColor=white)
-![](https://img.shields.io/badge/FI--CO_Integration-7b2fff?style=flat-square&logoColor=white)
-![](https://img.shields.io/badge/Tally_Prime-7b2fff?style=flat-square&logoColor=white)
-![](https://img.shields.io/badge/Zoho_Books-7b2fff?style=flat-square&logoColor=white)
-![](https://img.shields.io/badge/MS_Dynamics_365-7b2fff?style=flat-square&logoColor=white)
-![](https://img.shields.io/badge/Xero-7b2fff?style=flat-square&logoColor=white)
-
-**— Data & Automation —**
-
-![](https://img.shields.io/badge/Python-ff6b35?style=flat-square&logo=python&logoColor=white)
-![](https://img.shields.io/badge/FastAPI-ff6b35?style=flat-square&logo=fastapi&logoColor=white)
-![](https://img.shields.io/badge/Excel_Advanced-ff6b35?style=flat-square&logo=microsoftexcel&logoColor=white)
-![](https://img.shields.io/badge/Power_BI-ff6b35?style=flat-square&logo=powerbi&logoColor=white)
-![](https://img.shields.io/badge/SQL_Basic-ff6b35?style=flat-square&logo=mysql&logoColor=white)
-![](https://img.shields.io/badge/HTML-ff6b35?style=flat-square&logo=html5&logoColor=white)
-
-**— Business Process Frameworks —**
-
-![](https://img.shields.io/badge/Procure--to--Pay_(P2P)-1aff9c?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/Order--to--Cash_(O2C)-1aff9c?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/Record--to--Report_(R2R)-1aff9c?style=flat-square&logoColor=black)
-![](https://img.shields.io/badge/Month--End_Closing-1aff9c?style=flat-square&logoColor=black)
-
-</div>
+| Format | Download |
+|--------|---------|
+| 📕 PDF | [Jagatpathi_Choudhury_Resume_final.pdf](https://github.com/sjchoudhury/portfolio/raw/main/Jagatpathi_Choudhury_Resume_final.pdf) |
+| 📘 Word (.docx) | [Jagatpathi_Choudhury_Resume_final.docx](https://github.com/sjchoudhury/portfolio/raw/main/Jagatpathi_Choudhury_Resume_final.docx) |
 
 ---
 
-<div align="center">
+## 👤 About
 
-## `[ MISSION LOG — EXPERIENCE ]`
+Finance & Accounts professional with dual expertise in **SAP FICO / ERP consulting** and **Python-based process automation**. Hands-on experience in high-volume reconciliations (40K+ monthly), GST & TDS compliance, FI/CO configuration, and P2P/O2C/R2R processes across SAP S/4HANA, SAP ECC, SAP Ariba, Tally Prime, and Zoho Books.
 
-</div>
+Independently built **RECON** — a production-grade 3-module financial reconciliation platform using Python & FastAPI, covering GST IMS, Bank, and Payment Gateway reconciliation with zero manual intervention and full audit-readiness.
 
-```
-▸ NODE_01 ══════════════════════════════════════════════════════════════════
-  EMPLOYER  : Simplify Infotech Pvt. Ltd. (KoinX)
-  ROLE      : Finance Executive / ERP – Finance Operations
-  LOCATION  : Bhubaneswar, Odisha
-  TIMELINE  : Apr 2025 ──────────────────────────────────────────► PRESENT
-  ─────────────────────────────────────────────────────────────────────────
-  ✦ Processed 40K+ monthly invoices via Stripe · Razorpay · PhonePe · Cashfree
-  ✦ GSTR-1 · GSTR-3B filing · GSTR-2B reconciliation
-  ✦ FI-AR & FI-GL reconciliations within ERP workflows
-  ✦ International receipt recon · outward remittances · Form A2 compliance
-  ✦ Automated Razorpay salary & vendor payments end-to-end
-  ✦ TDS challan mapping · Clause-34 statutory reporting
-  TOOLS     : Zoho Books · Excel · Razorpay Dashboard
-```
+---
+
+## 💼 Work Experience
 
 ```
-▸ NODE_02 ══════════════════════════════════════════════════════════════════
-  EMPLOYER  : Jeevan Scientific Technology Ltd.
-  ROLE      : Executive – Finance & Accounts / SAP FI / Ariba Support
-  LOCATION  : Hyderabad, Telangana
-  TIMELINE  : Jun 2024 ──────────────────────────────────────── Apr 2025
-  ─────────────────────────────────────────────────────────────────────────
-  ✦ PO-based invoice processing via Dr. Reddy's SAP Ariba Supplier Portal
-  ✦ P2P tracking: quotations · GRNs · invoice matching · vendor payments
-  ✦ Weekly Payables & Receivables Aging Reports
-  ✦ Foreign remittances · exchange rate variance · Form A2 docs
-  ✦ TDS (Form 26Q) · GSTR-1/3B · GSTR-2B · Balance Sheet & P&L support
-  TOOLS     : Tally Prime · Excel · SAP Ariba
-```
+▸ Simplify Infotech Pvt. Ltd. (KoinX) · Bhubaneswar     Apr 2025 – Present
+  Finance Executive / ERP Consultant – Finance Operations
+  ✦ FI-AR & FI-GL reconciliations · 40K+ monthly invoices
+  ✦ GSTR-1/3B filing · GSTR-2B reconciliation · TDS · Clause-34
+  ✦ International remittances · Form A2 compliance
+  ✦ Automated Razorpay salary & vendor payment workflows
+  Tools: Zoho Books · Excel · Razorpay Dashboard
 
-```
-▸ NODE_03 ══════════════════════════════════════════════════════════════════
-  EMPLOYER  : PR Homes  |  Legend Car's PVT LTD  |  Purnamaba Fertilizers
-  ROLES     : Accountant (PT)  |  Junior Accountant (PT)  |  Cashier
-  TIMELINE  : Jan 2019 ──────────────────────────────────────── Jun 2024
-  ─────────────────────────────────────────────────────────────────────────
-  ✦ GST filings · profit margin analysis · 15% improvement in reporting time
-  ✦ Sales & receivables across 4 dealerships · reduced discrepancies by 20%
-  ✦ Cash books · outstanding reports · customer transaction management
+▸ Jeevan Scientific Technology Ltd · Hyderabad          Jun 2024 – Apr 2025
+  Executive – Finance & Accounts / SAP FI & Ariba Functional Support
+  ✦ PO-based invoicing via Dr. Reddy's SAP Ariba Supplier Portal
+  ✦ Full P2P cycle · TDS (Form 26Q) · GSTR-1/3B · GSTR-2B
+  ✦ Foreign remittances · exchange rate variance · B/S & P&L support
+  Tools: Tally Prime · Excel · SAP Ariba
+
+▸ PR Homes · Jeypore                                    Jan 2024 – Jun 2024
+  Accountant (Part-Time)
+  ✦ GST filings · payments · expense tracking · 15% reporting improvement
+
+▸ Legend Car's PVT LTD · Jeypore                        Mar 2023 – Oct 2023
+  Junior Accountant (Part-Time)
+  ✦ Sales & receivables across 4 dealerships · 20% discrepancy reduction
+
+▸ Purnamaba Fertilizers · Malkangiri                    Jan 2019 – Dec 2021
+  Cashier & Accounts Assistant
+  ✦ Cash books · outstanding reports · customer transactions
 ```
 
 ---
 
-<div align="center">
+## 🔬 Internships
 
-## `[ ACTIVE BUILDS — PROJECTS ]`
+```
+▸ HAL, Sunabeda · Finance Intern                        Jun – Jul 2022
+  ✦ Bookkeeping · import/export documentation · payroll
+  ✦ Capstone: Working Capital Management of HAL
 
-</div>
-
-<table align="center">
-<tr>
-<td width="50%" valign="top">
-
-### 🔷 GST IMS Reconciliation Tool
-`Python` `FastAPI` `Excel Automation`
-
-> Automated reconciliation engine for Purchase Register vs GST IMS data
-
-- Rule-based invoice matching with **date tolerance**
-- Component-wise **CGST / SGST / IGST** validation
-- CA-ready, **audit-friendly Excel reports**
-- Mismatch detection + **ITC risk flagging**
-
-**[→ View on GitHub](https://github.com/sjchoudhury/GST-Reconciliation-Tool)**
-
-</td>
-<td width="50%" valign="top">
-
-### 🟣 SAP FICO Implementation
-`SAP S/4HANA` `FI-GL` `FI-AP` `FI-AR` `CO`
-
-> Full enterprise configuration in practice environment *(In Progress)*
-
-- Enterprise Structure: Company Code · Chart of Accounts · CoArea
-- GL setup · Document Types · Number Ranges · Field Status Variants
-- Cost Centers · Profit Centers · FI–CO Integration (OKEON)
-- FB50 / FB01 postings · intercompany reconciliation testing
-
-**[→ View on Drive](https://drive.google.com/drive/folders/1HeLMxsBECV9ccZZFyMmWjFQfhtm6n2lb)**
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🟢 Working Capital Management
-`Financial Analysis` `HAL Internship Project`
-
-> Strategy for optimizing current assets & liabilities — HAL Sunabeda
-
-**[→ View on Drive](https://drive.google.com/drive/folders/1qKQkrVxBgIvhZp8SZfTQTh2-pKmT1Avs)**
-
-</td>
-<td width="50%" valign="top">
-
-### 🟠 Python Code Notes
-`Python` `Open Source`
-
-> Beginner-to-intermediate Python reference with annotated examples & function explanations
-
-**[→ View on GitHub](https://github.com/sjchoudhury/Basic-code-notes-of-python)**
-
-</td>
-</tr>
-</table>
+▸ Kansai Nerolac Paints · Demand Generation Intern      Dec 2022 – Mar 2023
+  ✦ Lead generation · client meetings · dealer/contractor network mgmt
+```
 
 ---
 
-<div align="center">
+## 🚀 Projects
 
-## `[ CREDENTIALS — CERTIFICATIONS ]`
+### 🔷 [RECON – Financial Reconciliation System v2.0](https://github.com/sjchoudhury/GST-Reconciliation-Tool)
 
-</div>
+[![Python](https://img.shields.io/badge/Python-3.13-FFD43B?style=flat-square&logo=python&logoColor=111111)](.)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110-00d4ff?style=flat-square&logo=fastapi&logoColor=white)](.)
+[![Pandas](https://img.shields.io/badge/Pandas-2.2-7b2fff?style=flat-square&logo=pandas&logoColor=white)](.)
+[![openpyxl](https://img.shields.io/badge/openpyxl-3.1-ff6b35?style=flat-square&logo=microsoftexcel&logoColor=white)](.)
+[![Status](https://img.shields.io/badge/STATUS-LIVE-00C853?style=flat-square)](.)
+
+> *Local-first. Zero data leaves your machine. Upload → Process → Download.*
+
+| Module | Technology | Key Achievement |
+|--------|-----------|----------------|
+| 📋 **GST IMS Reconciliation** | Python · Pandas · openpyxl | Rule-based matching · QRMP detection · CGST/SGST/IGST validation · GSTIN verification · Vendor risk scoring 🔴🟡🟢 · ITC-at-risk · 6-sheet CA-ready report |
+| 🏦 **Bank Reconciliation** | pdfplumber · fuzzywuzzy | 6-pass engine · ActivMoney FD intelligence · Auto-reconciled ₹36L · Gap ₹41.7L → near ₹0 |
+| 💳 **Payment Gateway Recon** | FastAPI · Pandas | Stripe · PhonePe · Cashfree · Zoho Payments vs Zoho Books · FX gap detection · 3% tolerance engine |
+
+---
+
+### 🟣 [SAP FICO Implementation Project](https://drive.google.com/drive/folders/1HeLMxsBECV9ccZZFyMmWjFQfhtm6n2lb?usp=sharing)
+
+[![SAP](https://img.shields.io/badge/SAP_S%2F4HANA-0FAAFF?style=flat-square&logo=sap&logoColor=white)](.)
+[![Status](https://img.shields.io/badge/STATUS-IN_PROGRESS-FFA000?style=flat-square)](.)
+
+Enterprise Structure · GL Accounting (FI-GL) · FI–CO integration (OKEON) · GL postings via FB50/FB01 · Business Areas · Cost & Profit Centers
+
+---
+
+### 🟢 [Working Capital Management – HAL Case Study](https://drive.google.com/drive/folders/1qKQkrVxBgIvhZp8SZfTQTh2-pKmT1Avs?usp=sharing)
+
+Strategic analysis of current assets & liabilities optimization at Hindustan Aeronautics Ltd.
+
+---
+
+## 🛠️ Skills
+
+**Finance & Accounting**
+`AP & AR` `GL Accounting` `GL Reconciliations` `Financial Reporting` `MIS Reporting` `GST Filings` `TDS` `Bank Reconciliation` `Statutory Compliance` `Ledger Scrutiny` `Month-End Closing` `Foreign Remittances`
+
+**SAP & ERP**
+`SAP S/4HANA` `SAP ECC` `SAP FICO` `SAP Ariba` `FI-GL` `FI-AP` `FI-AR` `Controlling (CO)` `APP – F110` `FI–CO Integration` `P2P` `O2C` `R2R` `Tally Prime` `Zoho Books` `MS Dynamics 365` `Xero`
+
+**Data & Technology**
+`Python` `FastAPI` `Pandas` `Advanced Excel` `Power BI` `SQL (Basic)` `HTML` `MS Office`
+
+---
+
+## 🎓 Education
+
+**Bachelor of Business Administration (BBA)**
+Vikram Deb (Autonomous) College, Jeypore, Odisha · *Graduated May 2023*
+*Financial Accounting · Cost & Management Accounting · Organizational Behavior*
+
+---
+
+## 📜 Certifications
 
 ```
   ┌─────────────────────────────────────────────────────────────────────┐
+  │  ◈  Financial Accounting Overview in SAP S/4HANA  SAP      2025   │
+  │  ◈  Executing Basic ERP Processes with SAP S/4HANA SAP     2025   │
+  │  ◈  EY – Audit Job Simulation                   Forage     2025   │
   │  ◈  Power BI Workshop                        Office Master  2025   │
-  │  ◈  Financial Accounting Overview SAP S/4HANA     SAP      2025   │
-  │  ◈  EY Audit Job Simulation                   Forage EY    2025   │
-  │  ◈  Executing ERP Processes with SAP S/4HANA      SAP      2025   │
   │  ◈  Python Certification                  Perfect eLearning 2021  │
-  │  ◈  SQL Basic                                  HackerRank  2023   │
+  │  ◈  SQL (Basic)                                HackerRank   2023  │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-<div align="center">
+## 🌐 Languages
 
-## `[ EDUCATION ]`
-
-**Vikram Deb (Autonomous) College** — Jeypore, Odisha
-`Bachelor of Business Administration` · Graduated **May 2023**
-*Financial Accounting · Cost & Management Accounting · Organizational Behavior*
+`English` &nbsp;·&nbsp; `Hindi` &nbsp;·&nbsp; `Odia` &nbsp;·&nbsp; `Telugu` &nbsp;·&nbsp; `Bengali`
 
 ---
 
-## `[ LANGUAGES ]`
-
-`Hindi` &nbsp;·&nbsp; `English` &nbsp;·&nbsp; `Odia` &nbsp;·&nbsp; `Telugu` &nbsp;·&nbsp; `Bengali`
-
----
-
-## `[ GITHUB STATS ]`
-
-<img height="160" src="https://github-readme-stats.vercel.app/api?username=sjchoudhury&show_icons=true&theme=midnight-purple&hide_border=true&bg_color=0d1117&title_color=00d4ff&icon_color=7b2fff&text_color=c9d1d9&count_private=true" />
-<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sjchoudhury&layout=compact&theme=midnight-purple&hide_border=true&bg_color=0d1117&title_color=00d4ff&text_color=c9d1d9" />
-
-<br/>
-
-![](https://komarev.com/ghpvc/?username=sjchoudhury&color=00d4ff&style=flat-square&label=PROFILE+VIEWS)
-
-</div>
-
----
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=venom&color=0:7b2fff,50:00d4ff,100:000000&height=130&section=footer&text=Open+to+SAP+%7C+ERP+%7C+Finance+Opportunities&fontSize=20&fontColor=ffffff&fontAlignY=55&animation=twinkling" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=venom&color=0:7b2fff,50:00d4ff,100:000000&height=120&section=footer&text=Open+to+SAP+%7C+ERP+%7C+Finance+Opportunities&fontSize=18&fontColor=ffffff&fontAlignY=55&animation=twinkling" />
 
 <div align="center">
 
-*Built with precision. Driven by numbers. Powered by automation.*
+*© 2026 S. Jagatpathi Choudhury · All rights reserved*
 
 </div>
